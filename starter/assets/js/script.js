@@ -1,4 +1,18 @@
 const apiKey = "0035747fb63db4ee901355f8cefff5f0";
+const localStorageData = JSON.parse(localStorage.getItem("historyCity")) || [];
+
+if (localStorageData != []) {
+   $(localStorageData).each(function(i) {
+    const searchHistory = $("<button>").text(localStorageData[i]).addClass("btn history-btn");
+
+    $(searchHistory).on("click", function(e) {
+        e.preventDefault();
+        getLocation(localStorageData[i]);
+    })
+
+    $("#history").append(searchHistory);
+   }) 
+}
 
 $("#search-button").on("click", function(e) {
     e.preventDefault();
