@@ -2,11 +2,13 @@ const apiKey = "0035747fb63db4ee901355f8cefff5f0";
 
 $("#search-button").on("click", function(e) {
     e.preventDefault();
-    $("#today").empty();
-    $("#forecast").empty();
-
     const cityName = $("#search-input").val().trim();
 
+    getLocation(cityName);
+});
+
+
+function getLocation(cityName) {
     const queryURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit&appid=${apiKey}`;
 
     fetch(queryURL)
@@ -18,14 +20,14 @@ $("#search-button").on("click", function(e) {
             const lat = data[0].lat;
             const lon = data[0].lon;
             
-            forecast(lon, lat);
+            getForecast(lon, lat);
         });
+}
 
-});
+function getForecast(lon, lat) {
+    $("#today").empty();
+    $("#forecast").empty();
 
-
-
-function forecast(lon, lat) {
     const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
     fetch(forecastURL)
@@ -43,9 +45,9 @@ function forecast(lon, lat) {
         
         const currentCard = $("<div>").addClass("card");
         const currentCardBody = $("<div>").addClass("card-body");
-        const currentCityPlace = $("<h3>").addClass("bold").text(currentCity);
-        const currentDatePlace = $("<h3>").addClass("bold").text(currentDate);
         const currentIconPlace = $("<img>").attr("src", currentIconUrl);
+        const currentCityPlace = $("<h3>").addClass("cityName").text(currentCity);
+        const currentDatePlace = $("<h3>").addClass("dateName").text(currentDate);
         const currentTempPlace = $("<p>").text("Temp: " + currentTemp + "°C");
         const currentWindPlace = $("<p>").text("Wind: " + currentWind + " KPH");
         const currentHumidityPlace = $("<p>").text("Humidity: " + currentHumidity + "%");
@@ -76,6 +78,22 @@ function forecast(lon, lat) {
             $(cardBody).append(datePlace, iconPlace, tempPlace, windPlace, humidityPlace);
         }
 
+        history(currentCity);
     });
 }
 
+function history(city) {
+    const historyCityArray = JSON.parse(localStorage.getItem("historyCity")) || [];
+    const historyButton = $("<button>").text(city).addClass("btn history-btn");
+
+    $(historyButton).on("click", function(e) {
+        e.preventDefault();
+        getLocation(city);
+    })
+    
+    if (!historyCityArray.includes(city)) {
+        historyCityArray.push(city);
+        localStorage.setItem("historyCity", JSON.stringify(historyCityArray));   
+        $("#history").append(historyButton); 
+    }
+}
