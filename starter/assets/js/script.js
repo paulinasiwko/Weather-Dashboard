@@ -43,7 +43,7 @@ function getForecast(lon, lat) {
         const currentIconCode = data.list[0].weather[0].icon;
         const currentIconUrl = `http://openweathermap.org/img/w/${currentIconCode}.png`;
         
-        const currentCard = $("<div>").addClass("card");
+        const currentCard = $("<div>").addClass("card").attr("style", "border: 1px solid lightblue;");
         const currentCardBody = $("<div>").addClass("card-body");
         const currentIconPlace = $("<img>").attr("src", currentIconUrl);
         const currentCityPlace = $("<h3>").addClass("cityName").text(currentCity);
