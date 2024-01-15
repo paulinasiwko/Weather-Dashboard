@@ -18,7 +18,11 @@ $("#search-button").on("click", function(e) {
     e.preventDefault();
     const cityName = $("#search-input").val().trim();
 
-    getLocation(cityName);
+    if (cityName !== "") {
+        getLocation(cityName);
+    } else {
+        alert("Please type city name");
+    }
 });
 
 

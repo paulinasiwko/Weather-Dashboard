@@ -1,6 +1,7 @@
 header {
     text-align: center;
-    background-color: rgb(0, 90, 192);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 22%, rgb(11, 116, 201) 100%);
     color: white;
 }
 
