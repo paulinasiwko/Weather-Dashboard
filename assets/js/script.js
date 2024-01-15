@@ -27,7 +27,7 @@ $("#search-button").on("click", function(e) {
 
 
 function getLocation(cityName) {
-    const queryURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit&appid=${apiKey}`;
+    const queryURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit&appid=${apiKey}`;
 
     fetch(queryURL)
         .then(function(response) {
@@ -59,7 +59,7 @@ function getForecast(lon, lat) {
         const currentWind = data.list[0].wind.speed;
         const currentHumidity = data.list[0].main.humidity;
         const currentIconCode = data.list[0].weather[0].icon;
-        const currentIconUrl = `http://openweathermap.org/img/w/${currentIconCode}.png`;
+        const currentIconUrl = `https://openweathermap.org/img/w/${currentIconCode}.png`;
         
         const currentCard = $("<div>").addClass("card").attr("style", "border: 1px solid lightblue;");
         const currentCardBody = $("<div>").addClass("card-body");
@@ -81,7 +81,7 @@ function getForecast(lon, lat) {
             const wind = data.list[i].wind.speed;
             const humidity = data.list[i].main.humidity;
             const iconCode = data.list[i].weather[0].icon;
-            const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;   
+            const iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;   
             
             const card = $("<div>").addClass("card col-sm-2 futureDays");
             const cardBody = $("<div>").addClass("card-body");
