@@ -1,6 +1,6 @@
 # Weather-Dashboard
 
-![GitHub top language](https://img.shields.io/github/languages/top/paulinasiwko/clicky-game)
+![GitHub top language](https://img.shields.io/github/languages/top/paulinasiwko/Weather-Dashboard)
 
 ## Description
 This project aims to create a Weather Forecast App. Users can search for a city and view both current and future weather conditions for that location. The city is then added to the search history, providing a convenient way to access previously searched locations. The deployed webpage serves as a comprehensive overview of the project and facilitates easy connections for others.
