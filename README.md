@@ -1,12 +1,11 @@
 # Weather-Dashboard
 
+![GitHub top language](https://img.shields.io/github/languages/top/paulinasiwko/clicky-game)
+
 ## Description
 This project aims to create a Weather Forecast App. Users can search for a city and view both current and future weather conditions for that location. The city is then added to the search history, providing a convenient way to access previously searched locations. The deployed webpage serves as a comprehensive overview of the project and facilitates easy connections for others.
 
 The app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
-
-## Installation
-N/A
 
 ## Features
 - This application assigns the user's input to a variable and uses it to fetch data from the OpenWeather API.
@@ -33,16 +32,10 @@ The [URL](https://paulinasiwko.github.io/Weather-Dashboard/) of deployed applica
 
 ## Technologies Used
 
+- ![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
+- ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+- ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 - Day.js
-- jQuery
-- JavaScript
-- HTML
-- CSS
-- Bootstrap 5
 - OpenWeather API
-
-## Credits
-N/A
-
-## Licence 
-N/A
